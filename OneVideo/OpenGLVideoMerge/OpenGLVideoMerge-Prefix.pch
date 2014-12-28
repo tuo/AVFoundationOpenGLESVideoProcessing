@@ -1,0 +1,33 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import "Util.h"
+
+    typedef void (^EmptyBlock) ();
+
+    #define CMTimeDebug(frameTime) CFBridgingRelease(CMTimeCopyDescription(kCFAllocatorDefault, frameTime))
+
+    #define CurrentQueueLabel dispatch_queue_get_label(dispatch_get_current_queue())
+
+    //#define NSLog(fmt, ...) NSLog((@"%s " fmt), CurrentQueueLabel, ##__VA_ARGS__)
+
+    #define ALog(fmt, ...) NSLog(fmt, ##__VA_ARGS__)
+
+    #define NSLog(...)
+
+    #define UTIL [Util shared]
+
+#endif
