@@ -1,0 +1,1 @@
+ffmpeg -i record.mov -ss 00:00:00 -t 00:00:05.52 -async 1 record1.mov
